@@ -13,24 +13,22 @@ stack_t *stack = NULL;
 
 void push_stack(char *cmd, int line_number)
 {
-	char *cmd_split[10], *strtemp;
+	char *cmd_lin[10], *strtemp;
 	int str_count = 0, data;
 	stack_t *temp;
 
-	printf("cmd is %s\n", cmd);
 	strtemp = strtok(cmd, " ");
 	while (strtemp)
 	{
-		cmd_split[str_count++] = strtemp;
+		cmd_lin[str_count++] = strtemp;
 		strtemp = strtok(NULL, " ");
 	}
-	if (str_count != 2 || (strcmp(cmd_split[1], "0") != 0 && atoi(cmd_split[1]) == 0))
+	if (str_count != 2 || (strcmp(cmd_lin[1], "0") != 0 && atoi(cmd_lin[1]) == 0))
 	{
-		printf("str_count: %i; cmd_split[1]: %s; data: %i\n;;", str_count, "temp", 9/*cmd_split[1], atoi(cmd_split[1])*/);
 		fprintf(stderr, "L%i: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	data = atoi(cmd_split[1]);
+	data = atoi(cmd_lin[1]);
 
 	temp = malloc(sizeof(stack_t));
 	if (temp == NULL)
@@ -52,6 +50,7 @@ void push_stack(char *cmd, int line_number)
 		stack->prev = temp;
 		stack = temp;
 	}
+	/*free(temp);*/
 }
 
 /**

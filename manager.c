@@ -11,19 +11,19 @@
 int run_opcodes(char **cmds)
 {
 	char *temp, *hold;
-	int line_number = 1, i;
+	int line_number = 1;
 
-	i = line_number;
-	while (strcmp(cmds[i-1], "NULL") != 0)
-	{
-		printf("line %i in cmd is %s\n", i, cmds[i-1]);
-		i++;
-	}
+	if (cmds == NULL)
+		exit(EXIT_FAILURE);
 	hold = malloc(100 * sizeof(char));
+	if (hold == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
 	while (strcmp(cmds[line_number - 1], "NULL") != 0)
 	{
 		strcpy(hold, cmds[line_number - 1]);
-		printf("hold is %s\n", hold);
 		temp = strtok(hold, " ");
 		if (strcmp(temp, "push") == 0)
 			push_stack(cmds[line_number - 1], line_number);
@@ -38,4 +38,21 @@ int run_opcodes(char **cmds)
 	}
 	free(hold);
 	return (0);
+}
+
+/**
+ * free_stack - frees all space allocated for the stack
+ *
+ * Return: void
+ */
+void free_stack(void)
+{
+	stack_t *temp_stack;
+
+	while (stack != NULL)
+	{
+		temp_stack = stack->next;
+		free(stack);
+		stack = temp_stack;
+	}
 }

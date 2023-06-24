@@ -43,5 +43,6 @@ int main(int argc, char **argv)
 	for (i = 0; i < 200; i++)
 		free(cmd_array[i]);
 	free(cmd_array);
+	free_stack();
 	return (0);
 }

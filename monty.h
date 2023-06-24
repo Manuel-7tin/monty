@@ -12,6 +12,7 @@ int readfile(char *filename, char **str_array, char *delimiter);
 void push_stack(char *cmd, int line_number);
 void pall_stack(void);
 int run_opcodes(char **cmds);
+void free_stack(void);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
