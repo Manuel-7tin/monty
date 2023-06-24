@@ -1,10 +1,18 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef HEADER_H
+#define HEADER_H
+
 #include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <limits.h>
+
+int readfile(char *filename, char **str_array, char *delimiter);
+void push_stack(char *cmd, int line_number);
+void pall_stack(void);
+int run_opcodes(char **cmds);
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -20,6 +28,7 @@ typedef struct stack_s
         struct stack_s *prev;
         struct stack_s *next;
 } stack_t;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -33,8 +42,7 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-char *__strtok(char *string, const char *deli, char **save_ptr);
-void free_stack(stack_t *stack);
-void pint(stack_t **stack, unsigned int line_number);
-ssize_t custom_getline(char **lineptr, size_t *n, FILE *stream);
-#endif
+
+extern stack_t *stack;
+
+#endif /*HEADER_H*/
