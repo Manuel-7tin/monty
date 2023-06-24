@@ -23,5 +23,5 @@ void add(unsigned int line_number)
  */
 void nop(unsigned int line_number)
 {
-	(void)line_numbner;
+	(void)line_number;
 }
