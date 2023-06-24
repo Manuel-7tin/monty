@@ -72,3 +72,21 @@ void pall_stack(void)
 		temp = temp->next;
 	}
 }
+
+/**
+ * pint_stack - shows the top element of a stack
+ *
+ * @line_number: the line number of the command
+ *
+ * Return: void
+ */
+
+void pint_stack(int line_number)
+{
+	if (stack  == NULL)
+	{
+		fprintf(stderr, "L%i: can't pint, stack empty", line_number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%i\n", stack->n);
+}

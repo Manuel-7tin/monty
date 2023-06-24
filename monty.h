@@ -13,6 +13,7 @@ void push_stack(char *cmd, int line_number);
 void pall_stack(void);
 int run_opcodes(char **cmds);
 void free_stack(void);
+void pint_stack(int line_number);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

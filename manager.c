@@ -29,6 +29,8 @@ int run_opcodes(char **cmds)
 			push_stack(cmds[line_number - 1], line_number);
 		else if (strcmp(temp, "pall") == 0)
 			pall_stack();
+		else if (strcmp(temp, "pint") == 0)
+			pint_stack(line_number);
 		else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, temp);
