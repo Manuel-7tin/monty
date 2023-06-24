@@ -41,6 +41,8 @@ int run_opcodes(char **cmds)
 			nop(line_number);
 		else if (strcmp(temp, "#") == 0)
 			nop(line_number);
+		else if (strcmp(temp, " #") == 0)
+			nop(line_number);
 		else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, temp);
