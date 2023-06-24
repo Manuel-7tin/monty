@@ -98,6 +98,7 @@ void pint_stack(int line_number)
  */
 void pop(unsigned int line_number)
 {
+	stack_t *t = stack;
 	if (stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
@@ -108,5 +109,5 @@ void pop(unsigned int line_number)
 	stack = stack->next;
 	if (stack != NULL)
 		stack->prev = NULL;
-	free_stack();
+	free(t);
 }
