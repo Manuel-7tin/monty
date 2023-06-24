@@ -90,3 +90,23 @@ void pint_stack(int line_number)
 	}
 	printf("%i\n", stack->n);
 }
+/**
+ * pop - removes the top of the stack
+ * @stack: global variable stack
+ * @line_number: line number to pop
+ * Return: Nothing
+ */
+void pop(unsigned int line_number)
+{
+	if (stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		free_stack();
+		exit(EXIT_FAILURE);
+	}
+
+	stack = stack->next;
+	if (stack != NULL)
+		stack->prev = NULL;
+	free_stack();
+}

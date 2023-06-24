@@ -32,7 +32,7 @@ int run_opcodes(char **cmds)
 		else if (strcmp(temp, "pint") == 0)
 			pint_stack(line_number);
 		else if (strcmp(temp, "pop") == 0)
-			pop(line_number);
+			pop(cmds, line_number);
 		else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, temp);
