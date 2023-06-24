@@ -44,7 +44,7 @@ int run_opcodes(char **cmds)
 			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, temp);
 			exit(EXIT_FAILURE);
 		}
-		if (temp[0] == '#')
+		if (hold[0] == '#')
 			continue;
 		line_number++;
 	}
