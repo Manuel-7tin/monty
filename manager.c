@@ -39,15 +39,13 @@ int run_opcodes(char **cmds)
 			add(line_number);
 		else if (strcmp(temp, "nop") == 0)
 			nop(line_number);
-		else if (strcmp(temp, "#") == 0)
-			nop(line_number);
-		else if (strcmp(temp, " #") == 0)
-			nop(line_number);
 		else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, temp);
 			exit(EXIT_FAILURE);
 		}
+		if (temp[0] == '#')
+			continue;
 		line_number++;
 	}
 	free(hold);
