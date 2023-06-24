@@ -24,7 +24,7 @@ int run_opcodes(char **cmds)
 	while (strcmp(cmds[line_number - 1], "NULL") != 0)
 	{
 		strcpy(hold, cmds[line_number - 1]);
-		temp = strtok(hold, " ");
+		temp = strtok(hold, " \t\n");
 		if (strcmp(temp, "push") == 0)
 			push_stack(cmds[line_number - 1], line_number);
 		else if (strcmp(temp, "pall") == 0)
