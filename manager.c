@@ -35,6 +35,8 @@ int run_opcodes(char **cmds)
 			pop(line_number);
 		else if (strcmp(temp, "swap") == 0)
 			swap(line_number);
+		else if (strcmp(temp, "add") == 0)
+			add(line_number);
 		else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, temp);
