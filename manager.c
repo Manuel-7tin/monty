@@ -24,7 +24,7 @@ int run_opcodes(char **cmds)
 	while (strcmp(cmds[line_number - 1], "NULL") != 0)
 	{
 		strcpy(hold, cmds[line_number - 1]);
-		temp = strtok(hold, " \t\n");
+		temp = strtok(hold, " ");
 		if (strcmp(temp, "push") == 0)
 			push_stack(cmds[line_number - 1], line_number);
 		else if (strcmp(temp, "pall") == 0)
@@ -44,7 +44,7 @@ int run_opcodes(char **cmds)
 			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, temp);
 			exit(EXIT_FAILURE);
 		}
-		if (hold[0] == '#')
+		if (hold[1] == '#')
 			continue;
 		line_number++;
 	}
