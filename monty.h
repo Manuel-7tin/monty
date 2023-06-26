@@ -14,6 +14,7 @@ void add(unsigned int line_number);
 void nop(unsigned int line_number);
 void sub(unsigned int line_number);
 void mul(unsigned int line_number);
+void mod(unsigned int line_number);
 int readfile(char *filename, char **str_array, char *delimiter);
 void push_stack(char *cmd, int line_number);
 void pall_stack(void);
