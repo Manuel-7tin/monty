@@ -99,13 +99,13 @@ void mod(unsigned int line_number)
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
-	if (stack->n == o)
+	if (stack->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
 
-	stack->next-> %= stack->n;
+	stack->next-> \%= stack->n;
 	pop(line_number);
 }
