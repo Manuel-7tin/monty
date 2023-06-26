@@ -16,15 +16,7 @@ void add(unsigned int line_number)
 	stack->next->n += stack->n;
 	pop(line_number);
 }
-/**
- * nop - does nothing
- * @line_number: number of command
- * Return: Nothing
- */
-void nop(unsigned int line_number)
-{
-	(void)line_number;
-}
+
 /**
  * sub - Substract the top from the second in a stack
  * @line_number: line numer of cmd
