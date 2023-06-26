@@ -59,3 +59,29 @@ void mul(unsigned int line_number)
 	stack->next->n *= stack->n;
 	pop(line_number);
 }
+
+/**
+ * divde - Divides top stack elment
+ *
+ * @line_number: The line number of that command in the file
+ *
+ * Return: void
+ */
+
+void divde(unsigned int line_number)
+{
+	if (stack == NULL || stack->next == NULL)
+	{
+		fprintf(stderr, "L%i: can't div, stack too short", line_number);
+		free_stack();
+		exit(EXIT_FAILURE);
+	}
+	if (stack->n == 0)
+	{
+		fprintf(stderr, "L%i: division by zero", line_number);
+		free_stack();
+		exit(EXIT_FAILURE);
+	}
+	stack->next->n /= stack->n;
+	pop(line_number);
+}
