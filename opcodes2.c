@@ -106,6 +106,6 @@ void mod(unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	stack->next-> \%= stack->n;
+	stack->next->n %= stack->n;
 	pop(line_number);
 }
