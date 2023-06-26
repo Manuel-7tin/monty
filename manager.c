@@ -45,6 +45,8 @@ int run_opcodes(char **cmds)
 			mul(line_number);
 		else if (strcmp(temp, "div") == 0)
 			divde(line_number);
+		else if (strcmp(temp, "mod") == 0)
+			mod(line_number);
 		else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, temp);
