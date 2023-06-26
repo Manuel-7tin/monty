@@ -41,7 +41,7 @@ void pstr(unsigned int line_number)
 
 	while(stack != NULL && stack->n != 0 && stack->n >= 0 && stack->n <= 127)
 	{
-		printf("%c", stack->);
+		printf("%c", stack->n);
 		stack = stack->next;
 	}
 	printf("\n");
