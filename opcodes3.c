@@ -30,3 +30,19 @@ void pchar(unsigned int line_number)
 
 	printf("%c\n", stack->n);
 }
+/**
+ * pstr - prints the string starting at the top
+ * @line_number: line of cmd
+ * Return: void
+ */
+void pstr(unsigned int line_number)
+{
+	(void)line_number;
+
+	while(stack != NULL && stack->n != 0 && stack->n >= 0 && stack->n <= 127)
+	{
+		printf("%c", stack->);
+		stack = stack->next;
+	}
+	printf("\n");
+}
