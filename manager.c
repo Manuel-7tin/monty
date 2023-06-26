@@ -47,14 +47,12 @@ int run_opcodes(char **cmds)
 			divde(line_number);
 		else if (strcmp(temp, "mod") == 0)
 			mod(line_number);
-		else if (strcmp(temp, "#") == 0)
-			nop(line_number);
 		else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, temp);
 			exit(EXIT_FAILURE);
 		}
-		if (hold[1] == '#')
+		if (temp[0] == '#')
 			continue;
 		line_number++;
 	}
